@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-简单的HTTP服务器，用于本地预览Web3导航网站
+简单的HTTP服务器，用于本地预览Web3工具箱网站
 使用方法：python server.py
 然后在浏览器中访问 http://localhost:8000
 """

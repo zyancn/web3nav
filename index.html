@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web3导航 - 探索区块链和去中心化世界</title>
+    <title>Web3工具箱 - 区块链实用工具集合</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -14,15 +14,15 @@
     <header>
         <div class="container">
             <div class="logo">
-                <h1>Web3<span>导航</span></h1>
+                <h1>Web3<span>工具箱</span></h1>
             </div>
             <nav>
                 <ul>
-                    <li><a href="#defi">DeFi</a></li>
-                    <li><a href="#nft">NFT</a></li>
-                    <li><a href="#dao">DAO</a></li>
-                    <li><a href="#metaverse">元宇宙</a></li>
-                    <li><a href="#tools">工具</a></li>
+                    <li><a href="#address-tools">地址工具</a></li>
+                    <li><a href="#hash-tools">哈希工具</a></li>
+                    <li><a href="#converter">单位转换</a></li>
+                    <li><a href="#signature">签名验证</a></li>
+                    <li><a href="#resources">资源链接</a></li>
                 </ul>
             </nav>
             <div class="theme-toggle">
@@ -33,12 +33,12 @@
 
     <section class="hero">
         <div class="container">
-            <h2>探索 Web3 世界的最佳起点</h2>
-            <p>发现优质区块链项目、DeFi协议、NFT平台和Web3工具</p>
+            <h2>Web3开发者的实用工具集</h2>
+            <p>一站式解决区块链开发中的常见问题，提供地址验证、哈希计算、单位转换等实用工具</p>
             <div class="search-box">
                 <form action="https://www.google.com/search" method="get" target="_blank" id="google-search-form">
                     <div class="search-input-group">
-                        <input type="text" name="q" placeholder="使用谷歌搜索..." id="search-input">
+                        <input type="text" name="q" placeholder="搜索区块链相关问题..." id="search-input">
                         <button type="submit"><i class="fas fa-search"></i></button>
                     </div>
                     <div class="search-options">
@@ -72,55 +72,51 @@
 
     <main>
         <div class="container">
-            <!-- DeFi 部分 -->
-            <section class="category" id="defi">
+            <!-- 地址工具部分 -->
+            <section class="category" id="address-tools">
                 <div class="category-header">
-                    <h3><i class="fas fa-landmark"></i> DeFi</h3>
-                    <p>去中心化金融协议和平台</p>
+                    <h3><i class="fas fa-wallet"></i> 地址工具</h3>
+                    <p>区块链地址验证、转换和检查工具</p>
                 </div>
-                <div class="site-grid">
-                    <a href="https://uniswap.org/" class="site-card" target="_blank">
-                        <div class="site-icon"><img src="https://cryptologos.cc/logos/uniswap-uni-logo.svg" alt="Uniswap"></div>
-                        <div class="site-info">
-                            <h4>Uniswap</h4>
-                            <p>领先的去中心化交易协议</p>
+                <div class="tool-container">
+                    <div class="tool-card">
+                        <h4>以太坊地址验证</h4>
+                        <div class="tool-input">
+                            <input type="text" id="eth-address" placeholder="输入以太坊地址..." class="tool-text-input">
+                            <button id="validate-eth-address" class="tool-button">验证</button>
                         </div>
-                    </a>
-                    <a href="https://aave.com/" class="site-card" target="_blank">
-                        <div class="site-icon"><img src="https://cryptologos.cc/logos/aave-aave-logo.svg" alt="Aave"></div>
-                        <div class="site-info">
-                            <h4>Aave</h4>
-                            <p>开源流动性协议</p>
+                        <div id="eth-address-result" class="tool-result"></div>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <h4>地址格式转换</h4>
+                        <div class="tool-input">
+                            <select id="address-convert-from" class="tool-select">
+                                <option value="eth">以太坊地址</option>
+                                <option value="bsc">BSC地址</option>
+                                <option value="sol">Solana地址</option>
+                            </select>
+                            <select id="address-convert-to" class="tool-select">
+                                <option value="checksum">Checksum格式</option>
+                                <option value="lowercase">小写格式</option>
+                                <option value="hex">Hex格式</option>
+                            </select>
                         </div>
-                    </a>
-                    <a href="https://compound.finance/" class="site-card" target="_blank">
-                        <div class="site-icon"><img src="https://cryptologos.cc/logos/compound-comp-logo.svg" alt="Compound"></div>
-                        <div class="site-info">
-                            <h4>Compound</h4>
-                            <p>算法利率协议</p>
+                        <div class="tool-input">
+                            <input type="text" id="address-to-convert" placeholder="输入地址..." class="tool-text-input">
+                            <button id="convert-address" class="tool-button">转换</button>
                         </div>
-                    </a>
-                    <a href="https://curve.fi/" class="site-card" target="_blank">
-                        <div class="site-icon"><img src="https://cryptologos.cc/logos/curve-dao-token-crv-logo.svg" alt="Curve"></div>
-                        <div class="site-info">
-                            <h4>Curve</h4>
-                            <p>稳定币交易平台</p>
+                        <div id="address-convert-result" class="tool-result"></div>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <h4>ENS域名查询</h4>
+                        <div class="tool-input">
+                            <input type="text" id="ens-name" placeholder="输入ENS域名或以太坊地址..." class="tool-text-input">
+                            <button id="lookup-ens" class="tool-button">查询</button>
                         </div>
-                    </a>
-                    <a href="https://makerdao.com/" class="site-card" target="_blank">
-                        <div class="site-icon"><img src="https://cryptologos.cc/logos/maker-mkr-logo.svg" alt="MakerDAO"></div>
-                        <div class="site-info">
-                            <h4>MakerDAO</h4>
-                            <p>去中心化稳定币系统</p>
-                        </div>
-                    </a>
-                    <a href="https://yearn.finance/" class="site-card" target="_blank">
-                        <div class="site-icon"><img src="https://cryptologos.cc/logos/yearn-finance-yfi-logo.svg" alt="Yearn Finance"></div>
-                        <div class="site-info">
-                            <h4>Yearn Finance</h4>
-                            <p>DeFi收益聚合器</p>
-                        </div>
-                    </a>
+                        <div id="ens-result" class="tool-result"></div>
+                    </div>
                 </div>
             </section>
 
@@ -139,72 +135,104 @@
                 </div>
             </div>
 
-            <!-- NFT 部分 -->
-            <section class="category" id="nft">
+            <!-- 哈希工具部分 -->
+            <section class="category" id="hash-tools">
                 <div class="category-header">
-                    <h3><i class="fas fa-palette"></i> NFT</h3>
-                    <p>非同质化代币市场和平台</p>
+                    <h3><i class="fas fa-fingerprint"></i> 哈希工具</h3>
+                    <p>加密哈希计算和验证工具</p>
                 </div>
-                <div class="site-grid">
-                    <a href="https://opensea.io/" class="site-card" target="_blank">
-                        <div class="site-icon"><img src="https://storage.googleapis.com/opensea-static/Logomark/OpenSea-Full-Logo%20(light).svg" alt="OpenSea"></div>
-                        <div class="site-info">
-                            <h4>OpenSea</h4>
-                            <p>最大的NFT交易市场</p>
+                <div class="tool-container">
+                    <div class="tool-card">
+                        <h4>Keccak-256 哈希计算</h4>
+                        <div class="tool-input">
+                            <textarea id="keccak-input" placeholder="输入要计算哈希的文本..." class="tool-textarea"></textarea>
                         </div>
-                    </a>
-                    <a href="https://rarible.com/" class="site-card" target="_blank">
-                        <div class="site-icon"><img src="https://cryptologos.cc/logos/rarible-rari-logo.svg" alt="Rarible"></div>
-                        <div class="site-info">
-                            <h4>Rarible</h4>
-                            <p>社区拥有的NFT平台</p>
+                        <div class="tool-input">
+                            <button id="calculate-keccak" class="tool-button">计算哈希</button>
                         </div>
-                    </a>
-                    <a href="https://foundation.app/" class="site-card" target="_blank">
-                        <div class="site-icon"><img src="https://foundation.app/favicon.ico" alt="Foundation"></div>
-                        <div class="site-info">
-                            <h4>Foundation</h4>
-                            <p>创作者驱动的NFT平台</p>
+                        <div id="keccak-result" class="tool-result"></div>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <h4>SHA-256 哈希计算</h4>
+                        <div class="tool-input">
+                            <textarea id="sha256-input" placeholder="输入要计算哈希的文本..." class="tool-textarea"></textarea>
                         </div>
-                    </a>
-                    <a href="https://superrare.com/" class="site-card" target="_blank">
-                        <div class="site-icon"><img src="https://superrare.com/favicon.ico" alt="SuperRare"></div>
-                        <div class="site-info">
-                            <h4>SuperRare</h4>
-                            <p>数字艺术品市场</p>
+                        <div class="tool-input">
+                            <button id="calculate-sha256" class="tool-button">计算哈希</button>
                         </div>
-                    </a>
+                        <div id="sha256-result" class="tool-result"></div>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <h4>哈希比较工具</h4>
+                        <div class="tool-input">
+                            <input type="text" id="hash1" placeholder="输入第一个哈希值..." class="tool-text-input">
+                        </div>
+                        <div class="tool-input">
+                            <input type="text" id="hash2" placeholder="输入第二个哈希值..." class="tool-text-input">
+                        </div>
+                        <div class="tool-input">
+                            <button id="compare-hash" class="tool-button">比较哈希</button>
+                        </div>
+                        <div id="hash-compare-result" class="tool-result"></div>
+                    </div>
                 </div>
             </section>
 
-            <!-- DAO 部分 -->
-            <section class="category" id="dao">
+            <!-- 单位转换工具部分 -->
+            <section class="category" id="converter">
                 <div class="category-header">
-                    <h3><i class="fas fa-users"></i> DAO</h3>
-                    <p>去中心化自治组织</p>
+                    <h3><i class="fas fa-exchange-alt"></i> 单位转换</h3>
+                    <p>加密货币单位和Gas费用转换工具</p>
                 </div>
-                <div class="site-grid">
-                    <a href="https://aragon.org/" class="site-card" target="_blank">
-                        <div class="site-icon"><img src="https://cryptologos.cc/logos/aragon-ant-logo.svg" alt="Aragon"></div>
-                        <div class="site-info">
-                            <h4>Aragon</h4>
-                            <p>DAO创建和管理平台</p>
+                <div class="tool-container">
+                    <div class="tool-card">
+                        <h4>以太坊单位转换</h4>
+                        <div class="tool-input">
+                            <input type="number" id="eth-value" placeholder="输入数值..." class="tool-text-input">
+                            <select id="eth-unit-from" class="tool-select">
+                                <option value="wei">Wei</option>
+                                <option value="gwei">Gwei</option>
+                                <option value="eth" selected>ETH</option>
+                            </select>
                         </div>
-                    </a>
-                    <a href="https://daohaus.club/" class="site-card" target="_blank">
-                        <div class="site-icon"><img src="https://daohaus.club/favicon.ico" alt="DAOhaus"></div>
-                        <div class="site-info">
-                            <h4>DAOhaus</h4>
-                            <p>Moloch DAO创建平台</p>
+                        <div class="tool-input">
+                            <select id="eth-unit-to" class="tool-select">
+                                <option value="wei">Wei</option>
+                                <option value="gwei" selected>Gwei</option>
+                                <option value="eth">ETH</option>
+                            </select>
+                            <button id="convert-eth-units" class="tool-button">转换</button>
                         </div>
-                    </a>
-                    <a href="https://colony.io/" class="site-card" target="_blank">
-                        <div class="site-icon"><img src="https://colony.io/favicon.ico" alt="Colony"></div>
-                        <div class="site-info">
-                            <h4>Colony</h4>
-                            <p>开源组织框架</p>
+                        <div id="eth-unit-result" class="tool-result"></div>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <h4>Gas费用计算器</h4>
+                        <div class="tool-input">
+                            <input type="number" id="gas-limit" placeholder="Gas限制..." class="tool-text-input">
                         </div>
-                    </a>
+                        <div class="tool-input">
+                            <input type="number" id="gas-price" placeholder="Gas价格 (Gwei)..." class="tool-text-input">
+                        </div>
+                        <div class="tool-input">
+                            <button id="calculate-gas-fee" class="tool-button">计算费用</button>
+                        </div>
+                        <div id="gas-fee-result" class="tool-result"></div>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <h4>时间戳转换</h4>
+                        <div class="tool-input">
+                            <input type="number" id="timestamp" placeholder="输入UNIX时间戳..." class="tool-text-input">
+                            <button id="convert-timestamp" class="tool-button">转换</button>
+                        </div>
+                        <div id="timestamp-result" class="tool-result"></div>
+                        <div class="tool-input">
+                            <button id="current-timestamp" class="tool-button secondary">获取当前时间戳</button>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -223,42 +251,48 @@
                 </div>
             </div>
 
-            <!-- 元宇宙部分 -->
-            <section class="category" id="metaverse">
+            <!-- 签名验证工具部分 -->
+            <section class="category" id="signature">
                 <div class="category-header">
-                    <h3><i class="fas fa-vr-cardboard"></i> 元宇宙</h3>
-                    <p>虚拟世界和元宇宙项目</p>
+                    <h3><i class="fas fa-signature"></i> 签名验证</h3>
+                    <p>以太坊消息签名和验证工具</p>
                 </div>
-                <div class="site-grid">
-                    <a href="https://decentraland.org/" class="site-card" target="_blank">
-                        <div class="site-icon"><img src="https://cryptologos.cc/logos/decentraland-mana-logo.svg" alt="Decentraland"></div>
-                        <div class="site-info">
-                            <h4>Decentraland</h4>
-                            <p>去中心化虚拟现实平台</p>
+                <div class="tool-container">
+                    <div class="tool-card">
+                        <h4>消息签名验证</h4>
+                        <div class="tool-input">
+                            <input type="text" id="verify-address" placeholder="以太坊地址..." class="tool-text-input">
                         </div>
-                    </a>
-                    <a href="https://www.sandbox.game/" class="site-card" target="_blank">
-                        <div class="site-icon"><img src="https://cryptologos.cc/logos/the-sandbox-sand-logo.svg" alt="The Sandbox"></div>
-                        <div class="site-info">
-                            <h4>The Sandbox</h4>
-                            <p>区块链游戏平台</p>
+                        <div class="tool-input">
+                            <textarea id="verify-message" placeholder="原始消息..." class="tool-textarea"></textarea>
                         </div>
-                    </a>
-                    <a href="https://axieinfinity.com/" class="site-card" target="_blank">
-                        <div class="site-icon"><img src="https://cryptologos.cc/logos/axie-infinity-axs-logo.svg" alt="Axie Infinity"></div>
-                        <div class="site-info">
-                            <h4>Axie Infinity</h4>
-                            <p>NFT游戏</p>
+                        <div class="tool-input">
+                            <textarea id="verify-signature" placeholder="签名..." class="tool-textarea"></textarea>
                         </div>
-                    </a>
+                        <div class="tool-input">
+                            <button id="verify-eth-signature" class="tool-button">验证签名</button>
+                        </div>
+                        <div id="signature-verify-result" class="tool-result"></div>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <h4>签名类型检测</h4>
+                        <div class="tool-input">
+                            <textarea id="signature-to-check" placeholder="输入签名..." class="tool-textarea"></textarea>
+                        </div>
+                        <div class="tool-input">
+                            <button id="detect-signature-type" class="tool-button">检测类型</button>
+                        </div>
+                        <div id="signature-type-result" class="tool-result"></div>
+                    </div>
                 </div>
             </section>
 
-            <!-- 工具部分 -->
-            <section class="category" id="tools">
+            <!-- 资源链接部分 -->
+            <section class="category" id="resources">
                 <div class="category-header">
-                    <h3><i class="fas fa-tools"></i> 工具</h3>
-                    <p>Web3开发和使用工具</p>
+                    <h3><i class="fas fa-link"></i> 资源链接</h3>
+                    <p>Web3开发资源和实用工具链接</p>
                 </div>
                 <div class="site-grid">
                     <a href="https://metamask.io/" class="site-card" target="_blank">
@@ -303,6 +337,20 @@
                             <p>智能合约IDE</p>
                         </div>
                     </a>
+                    <a href="https://web3js.readthedocs.io/" class="site-card" target="_blank">
+                        <div class="site-icon"><img src="https://avatars.githubusercontent.com/u/11744586" alt="Web3.js"></div>
+                        <div class="site-info">
+                            <h4>Web3.js</h4>
+                            <p>以太坊JavaScript API</p>
+                        </div>
+                    </a>
+                    <a href="https://docs.ethers.org/" class="site-card" target="_blank">
+                        <div class="site-icon"><img src="https://docs.ethers.org/v5/static/logo.svg" alt="Ethers.js"></div>
+                        <div class="site-info">
+                            <h4>Ethers.js</h4>
+                            <p>以太坊库和钱包实现</p>
+                        </div>
+                    </a>
                 </div>
             </section>
         </div>
@@ -327,33 +375,33 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <h2>Web3<span>导航</span></h2>
-                    <p>探索区块链和去中心化世界的最佳起点</p>
+                    <h2>Web3<span>工具箱</span></h2>
+                    <p>一站式解决区块链开发中的常见问题</p>
                 </div>
                 <div class="footer-links">
                     <div class="footer-column">
-                        <h4>导航</h4>
+                        <h4>工具导航</h4>
                         <ul>
-                            <li><a href="#defi">DeFi</a></li>
-                            <li><a href="#nft">NFT</a></li>
-                            <li><a href="#dao">DAO</a></li>
-                            <li><a href="#metaverse">元宇宙</a></li>
-                            <li><a href="#tools">工具</a></li>
+                            <li><a href="#address-tools">地址工具</a></li>
+                            <li><a href="#hash-tools">哈希工具</a></li>
+                            <li><a href="#converter">单位转换</a></li>
+                            <li><a href="#signature">签名验证</a></li>
+                            <li><a href="#resources">资源链接</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">
-                        <h4>关于</h4>
+                        <h4>相关资源</h4>
                         <ul>
-                            <li><a href="#">关于我们</a></li>
-                            <li><a href="#">联系我们</a></li>
-                            <li><a href="#">提交网站</a></li>
-                            <li><a href="#">隐私政策</a></li>
+                            <li><a href="https://ethereum.org/" target="_blank">以太坊官网</a></li>
+                            <li><a href="https://github.com/ethereum/EIPs" target="_blank">以太坊改进提案</a></li>
+                            <li><a href="https://ethresear.ch/" target="_blank">以太坊研究论坛</a></li>
+                            <li><a href="https://ethereum.stackexchange.com/" target="_blank">以太坊Stack Exchange</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Web3导航. 保留所有权利.</p>
+                <p>&copy; 2023 Web3工具箱. 保留所有权利.</p>
             </div>
         </div>
     </footer>
